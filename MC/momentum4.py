@@ -12,7 +12,9 @@ class Momentum4:
     def __init__(self, p, m):
         self.p = p
         self.m = m
-
+        self.threeMomentum = self.p[-3:]
+        self.momentumMag = np.linalg.norm(self.threeMomentum)
+        self.energy = self.p[0]
     @classmethod
     def from_cartesian(cls, e, px, py, pz, m):
         p = np.array([e, px, py, pz])
