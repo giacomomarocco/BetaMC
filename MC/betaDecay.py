@@ -48,9 +48,6 @@ class BetaDecay:
         self.cosThetaElectronNu = np.dot(self.electronDirection, self.neutrinoDirection)
         return self
     
-    def cosThetaElectronNucleon(self):
-        self.cosThetaElectronNucleon = np.dot(self.electronMomentum,self.childMomentum)/(self.electronMomentumMagnitude*self.childMomentumMagnitude)
-        return self
     
     def nucleusAngularMomentum(self):
         if self.unpolarised:
@@ -67,15 +64,22 @@ class BetaDecay:
     def neutrinoFourMomentum(self):
         self.neutrinoEnergy()
         self.neutrinoMomentum = Momentum4.from_polar(self.neutrinoEnergy, self.neutrinoCosTheta, self.neutrinoPhi , 0).threeMomentum
+        return self
     
     def electronFourMomentum(self):
         electron4Momentum = Momentum4.from_polar(self.electronEnergy, self.electronCosTheta, self.electronPhi, electronMass)
         self.electronMomentum = electron4Momentum.threeMomentum
         self.electronMomentumMagnitude = electron4Momentum.momentumMag
-        
+        return self
+    
     def childMomentum(self):
         self.childMomentum = -self.electronMomentum - self.neutrinoMomentum 
         self.childMomentumMagnitude = np.linalg.norm(self.childMomentum)
+        return self
+
+    def cosThetaElectronNucleon(self):
+        self.cosThetaElectronNucleon = np.dot(self.electronMomentum,self.childMomentum)/(self.electronMomentumMagnitude*self.childMomentumMagnitude)
+        return self
 
 
     def weight(self):

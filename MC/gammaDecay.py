@@ -22,25 +22,18 @@ from betaDecay import BetaDecay
 class GammaDecay(BetaDecay):
     def __init__(self, gammaEnergy, QValue, electronEnergy, electronCosTheta, neutrinoCosTheta, neutrinoPhi, unpolarised = True):
         #Initialise the beta decay, but now the energy available for beta decay is less (QValue-gammaEnergy).
-        super().__init__(QValue-gammaEnergy, electronEnergy, electronCosTheta, neutrinoCosTheta, neutrinoPhi, unpolarised = True)
         self.gammaEnergy = gammaEnergy
+        self.gammaMomentum()
+        super().__init__(QValue-gammaEnergy, electronEnergy, electronCosTheta, neutrinoCosTheta, neutrinoPhi, unpolarised = True)
         
-    def setGammaFourMomentum(self):
+    def gammaMomentum(self):
         cosThetaGamma = np.random.uniform(-1.0,1.0)
         phiGamma = np.random.uniform()*2*np.pi
-        self.gamma4Momentum = Momentum4.from_polar(self.gammaEnergy, cosThetaGamma, phiGamma, 0)
+        self.gammaMomentum = Momentum4.from_polar(self.gammaEnergy, cosThetaGamma, phiGamma, 0).threeMomentum
+        return self
     
-    def setProtonFourMomentum(self):
-        super().setElectronFourMomentum()
-        self.setNeutrinoFourMomentum()
-        self.setGammaFourMomentum()
-        self.Proton4Momentum = Momentum4.from_threeMomentum(-(self.electron4Momentum.p+self.neutrino4Momentum.p+self.gamma4Momentum.p), protonMass)
-        self.protonMomentum = momentumMagnitude(self.Proton4Momentum.p[0], protonMass)
-        
-    def getProtonFourMomentum(self):
-        self.setProtonFourMomentum()
-        return self.Proton4Momentum
-    
-b = BetaDecay(5,2,1,0,0)
-print(b.getProtonMomentum())
-print(GammaDecay(5,5,2,1,0,0).getProtonMomentum())
+    def childMomentum(self):
+        self.childMomentum = -(self.neutrinoMomentum + self.gammaMomentum + self.electronMomentum)
+        self.childMomentumMagnitude = np.linalg.norm(self.childMomentum)
+        return self
+
