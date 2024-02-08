@@ -1,0 +1,1759 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     55674,       1751]
+NotebookOptionsPosition[     53496,       1708]
+NotebookOutlinePosition[     53891,       1724]
+CellTagsIndexPosition[     53848,       1721]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FeynCalc`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.887210411046844*^9, 3.887210419022647*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"94c556e1-e05b-4d6c-8e1d-c8c5fb6a1423"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"FeynCalc \"\>", "Text",
+    StripOnInput->False,
+    FontWeight->Bold], "\[InvisibleSpace]", 
+   StyleBox["\<\"9.3.1 (stable version). For help, use the \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{"documentation", " ", "center"}],
+      BaseStyle->"Link",
+      ButtonData:>"paclet:FeynCalc/",
+      ButtonNote->"paclet:FeynCalc/"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\", check out the \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox["wiki",
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL["https://github.com/FeynCalc/feyncalc/wiki"], None},
+      ButtonNote->"https://github.com/FeynCalc/feyncalc/wiki"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" or visit the \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{"forum", "."}],
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL["https://github.com/FeynCalc/feyncalc/discussions"], None},
+      ButtonNote->"http://www.feyncalc.org/forum/"],
+     DisplayForm], "Text",
+    StripOnInput->False]}],
+  SequenceForm[
+   Style["FeynCalc ", "Text", Bold], 
+   Style["9.3.1 (stable version). For help, use the ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox[
+     "documentation center", BaseStyle -> "Link", ButtonData :> 
+      "paclet:FeynCalc/", ButtonNote -> "paclet:FeynCalc/"]], "Text"], 
+   Style[", check out the ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["wiki", ButtonData :> {
+        URL["https://github.com/FeynCalc/feyncalc/wiki"], None}, BaseStyle -> 
+      "Hyperlink", ButtonNote -> 
+      "https://github.com/FeynCalc/feyncalc/wiki"]], "Text"], 
+   Style[" or visit the ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["forum.", ButtonData :> {
+        URL["https://github.com/FeynCalc/feyncalc/discussions"], None}, 
+      BaseStyle -> "Hyperlink", ButtonNote -> 
+      "http://www.feyncalc.org/forum/"]], "Text"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8872104210370493`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"e013cc71-4642-4d47-87eb-97946cb658d1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"To save your and our time, please check our \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox["FAQ",
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL["https://github.com/FeynCalc/feyncalc/wiki/FAQ"], None},
+      ButtonNote->"https://github.com/FeynCalc/feyncalc/wiki"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" for answers to some common FeynCalc questions.\"\>", "Text",
+    
+    StripOnInput->False]}],
+  SequenceForm[
+   Style["To save your and our time, please check our ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["FAQ", ButtonData :> {
+        URL["https://github.com/FeynCalc/feyncalc/wiki/FAQ"], None}, 
+      BaseStyle -> "Hyperlink", ButtonNote -> 
+      "https://github.com/FeynCalc/feyncalc/wiki"]], "Text"], 
+   Style[" for answers to some common FeynCalc questions.", "Text"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.887210421039852*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"47b8e99a-da66-40a8-8849-4daf74792007"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"See also the supplied \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{"examples", "."}],
+      BaseStyle->"Hyperlink",
+      ButtonFunction:>SystemOpen[
+        FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]],
+      Evaluator->Automatic,
+      Method->"Preemptive"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" If you use FeynCalc in your research, please cite\"\>", 
+    "Text",
+    StripOnInput->False]}],
+  SequenceForm[
+   Style["See also the supplied ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox[
+     "examples.", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
+        FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]], Evaluator -> 
+      Automatic, Method -> "Preemptive"]], "Text"], 
+   Style[" If you use FeynCalc in your research, please cite", "Text"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8872104210406837`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"8e95a2f8-b203-459c-8c51-a4982e9a3bad"],
+
+Cell[BoxData[
+ StyleBox["\<\" \[Bullet] V. Shtabovenko, R. Mertig and F. Orellana, \
+Comput.Phys.Commun. 256 (2020) 107478, arXiv:2001.04407.\"\>", "Text",
+  StripOnInput->False]], "Print",
+ CellChangeTimes->{3.887210421041514*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"fd69088b-b6cf-4f82-a6dc-79bf377482be"],
+
+Cell[BoxData[
+ StyleBox["\<\" \[Bullet] V. Shtabovenko, R. Mertig and F. Orellana, \
+Comput.Phys.Commun. 207 (2016) 432-444, arXiv:1601.01167.\"\>", "Text",
+  StripOnInput->False]], "Print",
+ CellChangeTimes->{3.887210421042403*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"bb4e7676-51a1-4935-b274-0d296fd961c0"],
+
+Cell[BoxData[
+ StyleBox["\<\" \[Bullet] R. Mertig, M. B\[ODoubleDot]hm, and A. Denner, \
+Comput. Phys. Commun. 64 (1991) 345-359.\"\>", "Text",
+  StripOnInput->False]], "Print",
+ CellChangeTimes->{3.887210421043084*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"d4c44fb9-ac17-4f75-a236-2464d3c34290"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"protonSpinSum", "[", "p_", "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{"GS", "[", "p", "]"}], "+", "mProton"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"neutrinoSpinSum", "[", "p_", "]"}], " ", ":=", " ", 
+   RowBox[{"GS", "[", "p", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"electronSpinSum", "[", "p_", "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{"GS", "[", "p", "]"}], "+", "mElectron"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"neutronSpinNoSum", "[", "p_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"GS", "[", "p", "]"}], "+", "mNeutron"}], ")"}], ".", 
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     RowBox[{"GA5", ".", 
+      RowBox[{"GS", "[", "s", "]"}]}]}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SP", "[", 
+    RowBox[{"pN", ",", "s"}], "]"}], " ", "=", " ", "0"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SP", "[", 
+    RowBox[{"pN", ",", "pN"}], "]"}], " ", "=", " ", 
+   SuperscriptBox["mNeutron", "2"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SP", "[", 
+    RowBox[{"pP", ",", "pP"}], "]"}], "=", " ", 
+   SuperscriptBox["mProton", "2"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q", " ", "=", " ", 
+   RowBox[{"pN", "-", "pP"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.887390092468816*^9, 3.8873901082072477`*^9}, {
+  3.887390145267129*^9, 3.8873902356973343`*^9}, {3.887390948751202*^9, 
+  3.887390949710432*^9}, {3.887391102453689*^9, 3.8873911129668617`*^9}, {
+  3.887658003871173*^9, 3.887658019653956*^9}, {3.887744415874751*^9, 
+  3.887744424420026*^9}, {3.887745702034155*^9, 3.8877457022466784`*^9}, {
+  3.8877457405461187`*^9, 3.887745769554689*^9}, {3.887746111230217*^9, 
+  3.887746111495545*^9}, {3.887746171529954*^9, 3.8877462028655663`*^9}, {
+  3.887746238591333*^9, 3.887746239871635*^9}, {3.88780551506249*^9, 
+  3.88780553422757*^9}, {3.887805633913579*^9, 3.887805658896119*^9}, {
+  3.887807119296481*^9, 3.887807119643808*^9}},
+ CellLabel->
+  "In[750]:=",ExpressionUUID->"e9f7aa40-acc1-4864-8e21-2f17eee99a3f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "I", " ", "need", " ", "to", " ", "take", " ", "into", " ", "account"}], 
+     " ", "+", " ", 
+     RowBox[{
+      RowBox[{"h", ".", "c", ".", " ", "in"}], " ", "the", " ", 
+      "lagrangian"}]}], ",", " ", 
+    RowBox[{
+     RowBox[{
+     "plus", " ", "the", " ", "fact", " ", "that", " ", "the", " ", 
+      "interference", " ", "term", " ", "has", " ", "a"}], " ", "+", " ", 
+     RowBox[{"h", ".", "c", "."}]}], ",", " ", 
+    RowBox[{
+    "so", " ", "the", " ", "full", " ", "interference", " ", "is", " ", 
+     "twice", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"the", " ", "below"}], " ", "+", " ", 
+       RowBox[{"h", ".", "c", "."}]}], ")"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"hadronLR", " ", "=", 
+     RowBox[{"DiracTrace", "[", 
+      RowBox[{
+       RowBox[{"neutronSpinNoSum", "[", "pN", "]"}], ".", 
+       RowBox[{"GA", "[", "\[Mu]", "]"}], ".", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "GA5"}], ")"}], ".", 
+       RowBox[{"protonSpinSum", "[", "pP", "]"}], ".", 
+       RowBox[{"GA", "[", "\[Nu]", "]"}], ".", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", "GA5"}], ")"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"hadronTR", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"DiracTrace", "[", 
+       RowBox[{
+        RowBox[{"neutronSpinNoSum", "[", "pN", "]"}], ".", 
+        RowBox[{"DiracSigma", "[", 
+         RowBox[{
+          RowBox[{"GA", "[", "\[Mu]", "]"}], ",", 
+          RowBox[{"GA", "[", "\[Alpha]", "]"}]}], "]"}], ".", 
+        RowBox[{"FV", "[", 
+         RowBox[{"q", ",", "\[Alpha]"}], "]"}], ".", 
+        RowBox[{"protonSpinSum", "[", "pP", "]"}], ".", 
+        RowBox[{"GA", "[", "\[Nu]", "]"}], ".", 
+        RowBox[{"(", 
+         RowBox[{"1", "+", "GA5"}], ")"}]}], "]"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", "mNeutron"}], ")"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"leptonLR", " ", "=", " ", 
+     RowBox[{"DiracTrace", "[", 
+      RowBox[{
+       RowBox[{"electronSpinSum", "[", "pE", "]"}], ".", 
+       RowBox[{"GA", "[", "\[Mu]", "]"}], ".", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "GA5"}], ")"}], ".", 
+       RowBox[{"neutrinoSpinSum", "[", "p\[Nu]", "]"}], ".", 
+       RowBox[{"GA", "[", "\[Nu]", "]"}], ".", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "GA5"}], ")"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"DiracSimplify", "[", "hadronLR", "]"}], ".", " ", 
+      RowBox[{"DiracSimplify", "[", "leptonLR", "]"}]}], " ", "//", " ", 
+     "Contract"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"LR", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"2", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"\[Epsilon]RC", " ", "%"}], " ", "+", " ", 
+        RowBox[{"\[Epsilon]R", " ", 
+         RowBox[{"ComplexConjugate", "[", "%", "]"}]}]}], ")"}]}], " ", "//", 
+     " ", "Simplify"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"DiracSimplify", "[", "hadronTR", "]"}], ".", 
+      RowBox[{"DiracSimplify", "[", "leptonLR", "]"}]}], " ", "//", " ", 
+     "Contract"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"%", "  ", "/.", " ", 
+     RowBox[{"mProton", " ", "->", " ", "mNeutron"}]}], " ", "//", " ", 
+    "Simplify"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.8873904873131857`*^9, 3.887390514206937*^9}, {
+  3.8873905578883266`*^9, 3.8873906817738953`*^9}, {3.8873908190250263`*^9, 
+  3.887390829087244*^9}, {3.887391010830792*^9, 3.887391084152192*^9}, {
+  3.887391630585338*^9, 3.887391666461409*^9}, {3.887391718077064*^9, 
+  3.887391739940754*^9}, {3.887744151111793*^9, 3.88774421706354*^9}, {
+  3.8877442541018953`*^9, 3.8877443918171787`*^9}, {3.8877444530956783`*^9, 
+  3.8877444618156557`*^9}, {3.887744523089101*^9, 3.887744525728763*^9}, {
+  3.887744744694359*^9, 3.8877447491635103`*^9}, {3.887745637002516*^9, 
+  3.887745650382886*^9}, {3.887746495019305*^9, 3.887746499050119*^9}, {
+  3.887805578257114*^9, 3.8878055836106453`*^9}},
+ CellLabel->
+  "In[758]:=",ExpressionUUID->"187a42ad-b193-48a6-9912-867508c1de64"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", "256"}], " ", "mProton", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]R", "+", "\[Epsilon]RC"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"mNeutron", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pE",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pE",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["s",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pN",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pE",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["pN",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["s",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}]}]}], ")"}]}], "+", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]R", "-", "\[Epsilon]RC"}], ")"}], " ", 
+      SuperscriptBox[
+       OverscriptBox["\[Epsilon]", "_"], 
+       RowBox[{
+        FormBox[
+         OverscriptBox[
+          FormBox["pE",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["pN",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["p\[Nu]",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["s",
+           TraditionalForm], "_"],
+         TraditionalForm]}]]}]}], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.887390682245141*^9, {3.887390827378106*^9, 3.887390829364604*^9}, 
+   3.8873909511626863`*^9, {3.887391058287177*^9, 3.887391084644449*^9}, 
+   3.8873911151940737`*^9, {3.887391715102194*^9, 3.8873917402360773`*^9}, {
+   3.887744300476116*^9, 3.887744313018917*^9}, {3.887744352697061*^9, 
+   3.887744392254229*^9}, {3.88774442663645*^9, 3.887744463362159*^9}, 
+   3.8877445269233294`*^9, 3.887744749464971*^9, 3.88774565083989*^9, 
+   3.887745703941979*^9, {3.8877457430084476`*^9, 3.887745770828506*^9}, 
+   3.887746114128786*^9, {3.887746178342001*^9, 3.887746205112156*^9}, 
+   3.8877462413765717`*^9, {3.887746495341588*^9, 3.887746499404866*^9}, {
+   3.887805518400275*^9, 3.887805538710539*^9}, 3.8878055840592546`*^9, {
+   3.887805635423176*^9, 3.88780567203613*^9}, 3.887807121728816*^9},
+ CellLabel->
+  "Out[762]=",ExpressionUUID->"190b8814-b8ba-44d0-a3df-f92ca9520958"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox["1", "mNeutron"], 
+   RowBox[{"16", " ", "\[ImaginaryI]", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       SuperscriptBox["mNeutron", "3"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["mNeutron", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "+", 
+      RowBox[{"4", " ", 
+       SuperscriptBox["mNeutron", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "-", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", 
+          SuperscriptBox["mNeutron", "2"]}], "-", 
+         RowBox[{
+          FormBox[
+           OverscriptBox[
+            FormBox["pN",
+             TraditionalForm], "_"],
+           TraditionalForm], 
+          FormBox["\<\"\[CenterDot]\"\>",
+           TraditionalForm], 
+          FormBox[
+           OverscriptBox[
+            FormBox["pP",
+             TraditionalForm], "_"],
+           TraditionalForm]}]}], ")"}], " ", 
+       SuperscriptBox[
+        OverscriptBox["\[Epsilon]", "_"], 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}]]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          FormBox[
+           OverscriptBox[
+            FormBox["pN",
+             TraditionalForm], "_"],
+           TraditionalForm], 
+          FormBox["\<\"\[CenterDot]\"\>",
+           TraditionalForm], 
+          FormBox[
+           OverscriptBox[
+            FormBox["pP",
+             TraditionalForm], "_"],
+           TraditionalForm]}], "+", 
+         SuperscriptBox["mNeutron", "2"]}], ")"}], " ", 
+       SuperscriptBox[
+        OverscriptBox["\[Epsilon]", "_"], 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}]]}], "-", 
+      RowBox[{"6", " ", 
+       SuperscriptBox["mNeutron", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "+", 
+      RowBox[{"2", " ", "mNeutron", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "-", 
+      RowBox[{"2", " ", "mNeutron", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "-", 
+      RowBox[{"6", " ", "mNeutron", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "+", 
+      RowBox[{"2", " ", "mNeutron", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "+", 
+      RowBox[{"2", " ", "mNeutron", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       SuperscriptBox[
+        OverscriptBox["\[Epsilon]", "_"], 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}]]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       SuperscriptBox[
+        OverscriptBox["\[Epsilon]", "_"], 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}]]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       SuperscriptBox[
+        OverscriptBox["\[Epsilon]", "_"], 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}]]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       SuperscriptBox[
+        OverscriptBox["\[Epsilon]", "_"], 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}]]}], "-", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       SuperscriptBox[
+        OverscriptBox["\[Epsilon]", "_"], 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}]]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pE",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["p\[Nu]",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["s",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FormBox[
+          OverscriptBox[
+           FormBox["pN",
+            TraditionalForm], "_"],
+          TraditionalForm], 
+         FormBox["\<\"\[CenterDot]\"\>",
+          TraditionalForm], 
+         FormBox[
+          OverscriptBox[
+           FormBox["pP",
+            TraditionalForm], "_"],
+          TraditionalForm]}], ")"}]}]}], ")"}]}]}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.887390682245141*^9, {3.887390827378106*^9, 3.887390829364604*^9}, 
+   3.8873909511626863`*^9, {3.887391058287177*^9, 3.887391084644449*^9}, 
+   3.8873911151940737`*^9, {3.887391715102194*^9, 3.8873917402360773`*^9}, {
+   3.887744300476116*^9, 3.887744313018917*^9}, {3.887744352697061*^9, 
+   3.887744392254229*^9}, {3.88774442663645*^9, 3.887744463362159*^9}, 
+   3.8877445269233294`*^9, 3.887744749464971*^9, 3.88774565083989*^9, 
+   3.887745703941979*^9, {3.8877457430084476`*^9, 3.887745770828506*^9}, 
+   3.887746114128786*^9, {3.887746178342001*^9, 3.887746205112156*^9}, 
+   3.8877462413765717`*^9, {3.887746495341588*^9, 3.887746499404866*^9}, {
+   3.887805518400275*^9, 3.887805538710539*^9}, 3.8878055840592546`*^9, {
+   3.887805635423176*^9, 3.88780567203613*^9}, 3.8878071220040817`*^9},
+ CellLabel->
+  "Out[764]=",ExpressionUUID->"2b0e6b77-4c97-4389-af61-2be044c5b57d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hadronLS", " ", "=", " ", 
+   RowBox[{"DiracTrace", "[", 
+    RowBox[{
+     RowBox[{"neutronSpinNoSum", "[", "pN", "]"}], ".", 
+     RowBox[{"GA", "[", "\[Mu]", "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "GA5"}], ")"}], ".", 
+     RowBox[{"protonSpinSum", "[", "pP", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"leptonLS", " ", "=", " ", 
+   RowBox[{"DiracTrace", "[", 
+    RowBox[{
+     RowBox[{"electronSpinSum", "[", "pE", "]"}], ".", 
+     RowBox[{"GA", "[", "\[Mu]", "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "GA5"}], ")"}], ".", 
+     RowBox[{"neutrinoSpinSum", "[", "p\[Nu]", "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", "GA5"}], ")"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"DiracSimplify", "[", "hadronLS", "]"}], ".", 
+    RowBox[{"DiracSimplify", "[", "leptonLS", "]"}]}], " ", "//", " ", 
+   "Contract"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"LS", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"2", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Epsilon]SC", " ", "%"}], " ", "+", " ", 
+      RowBox[{"\[Epsilon]S", " ", 
+       RowBox[{"ComplexConjugate", "[", "%", "]"}]}]}], ")"}]}], " ", "//", 
+   " ", "Simplify"}]}]}], "Input",
+ CellChangeTimes->{{3.887391132010075*^9, 3.887391225533299*^9}, {
+  3.887391271425908*^9, 3.887391275282003*^9}, {3.8873916771413383`*^9, 
+  3.887391737661853*^9}},
+ CellLabel->
+  "In[448]:=",ExpressionUUID->"0930f84a-6b88-4089-9920-b3f31798f8cc"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"64", " ", "mElectron", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]S", "+", "\[Epsilon]SC"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["p\[Nu]",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["s",
+               TraditionalForm], "_"],
+             TraditionalForm]}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             FormBox[
+              OverscriptBox[
+               FormBox["pN",
+                TraditionalForm], "_"],
+              TraditionalForm], 
+             FormBox["\<\"\[CenterDot]\"\>",
+              TraditionalForm], 
+             FormBox[
+              OverscriptBox[
+               FormBox["pP",
+                TraditionalForm], "_"],
+              TraditionalForm]}], "+", 
+            RowBox[{"mNeutron", " ", "mProton"}]}], ")"}]}]}], "+", 
+        RowBox[{"mNeutron", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pP",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pN",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["pP",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["s",
+               TraditionalForm], "_"],
+             TraditionalForm]}], "+", "mProton"}], ")"}]}]}], ")"}]}], "+", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]S", "-", "\[Epsilon]SC"}], ")"}], " ", 
+      SuperscriptBox[
+       OverscriptBox["\[Epsilon]", "_"], 
+       RowBox[{
+        FormBox[
+         OverscriptBox[
+          FormBox["pN",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["pP",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["p\[Nu]",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["s",
+           TraditionalForm], "_"],
+         TraditionalForm]}]]}]}], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.887391272136593*^9, 3.887391275668222*^9}, {
+  3.887391729912497*^9, 3.8873917411776657`*^9}},
+ CellLabel->
+  "Out[451]=",ExpressionUUID->"04b59b81-2871-46c3-a6a9-e58fe21b6893"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.887213097021805*^9, 
+  3.8872130983634367`*^9}},ExpressionUUID->"1699a391-52c9-42fa-b339-\
+7e880d4bc748"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hadronLP", " ", "=", " ", 
+   RowBox[{"DiracTrace", "[", 
+    RowBox[{
+     RowBox[{"neutronSpinNoSum", "[", "pN", "]"}], ".", 
+     RowBox[{"GA", "[", "\[Mu]", "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "GA5"}], ")"}], ".", 
+     RowBox[{"protonSpinSum", "[", "pP", "]"}], ".", "GA5"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"leptonLP", " ", "=", " ", 
+   RowBox[{"DiracTrace", "[", 
+    RowBox[{
+     RowBox[{"electronSpinSum", "[", "pE", "]"}], ".", 
+     RowBox[{"GA", "[", "\[Mu]", "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "GA5"}], ")"}], ".", 
+     RowBox[{"neutrinoSpinSum", "[", "p\[Nu]", "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", "GA5"}], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"DiracSimplify", "[", "hadronLP", "]"}], ".", 
+    RowBox[{"DiracSimplify", "[", "leptonLP", "]"}]}], " ", "//", " ", 
+   "Contract"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"LP", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"2", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Epsilon]PC", " ", "%"}], " ", "+", " ", 
+      RowBox[{"\[Epsilon]P", " ", 
+       RowBox[{"ComplexConjugate", "[", "%", "]"}]}]}], ")"}]}], " ", "//", 
+   " ", "Simplify"}]}]}], "Input",
+ CellChangeTimes->{{3.887391278773548*^9, 3.887391320438846*^9}, {
+  3.887391355455559*^9, 3.8873913697148933`*^9}, {3.887391681986761*^9, 
+  3.88739173532858*^9}},
+ CellLabel->
+  "In[452]:=",ExpressionUUID->"588c3583-bf89-4cef-a33f-19dcf8d66fc9"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"64", " ", "mElectron", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]P", "+", "\[Epsilon]PC"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["s",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"mNeutron", " ", "mProton"}], "-", 
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["pN",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["pP",
+               TraditionalForm], "_"],
+             TraditionalForm]}]}], ")"}]}], "+", 
+        RowBox[{"mNeutron", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pP",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pN",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            FormBox[
+             OverscriptBox[
+              FormBox["pP",
+               TraditionalForm], "_"],
+             TraditionalForm], 
+            FormBox["\<\"\[CenterDot]\"\>",
+             TraditionalForm], 
+            FormBox[
+             OverscriptBox[
+              FormBox["s",
+               TraditionalForm], "_"],
+             TraditionalForm]}], "-", "mProton"}], ")"}]}]}], ")"}]}], "+", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]P", "-", "\[Epsilon]PC"}], ")"}], " ", 
+      SuperscriptBox[
+       OverscriptBox["\[Epsilon]", "_"], 
+       RowBox[{
+        FormBox[
+         OverscriptBox[
+          FormBox["pN",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["pP",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["p\[Nu]",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["s",
+           TraditionalForm], "_"],
+         TraditionalForm]}]]}]}], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.8873913701463842`*^9, {3.8873917329763803`*^9, 3.887391742272356*^9}},
+ CellLabel->
+  "Out[455]=",ExpressionUUID->"8acefe39-024a-492a-8568-6040ceb972f1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hadronLT", " ", "=", " ", 
+   RowBox[{"DiracTrace", "[", 
+    RowBox[{
+     RowBox[{"neutronSpinNoSum", "[", "pN", "]"}], ".", 
+     RowBox[{"GA", "[", "\[Mu]", "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "GA5"}], ")"}], ".", 
+     RowBox[{"protonSpinSum", "[", "pP", "]"}], ".", 
+     RowBox[{"DiracSigma", "[", 
+      RowBox[{
+       RowBox[{"GA", "[", "\[Alpha]", "]"}], ",", 
+       RowBox[{"GA", "[", "\[Beta]", "]"}]}], "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", "GA5"}], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"leptonLT", " ", "=", " ", 
+   RowBox[{"DiracTrace", "[", 
+    RowBox[{
+     RowBox[{"electronSpinSum", "[", "pE", "]"}], ".", 
+     RowBox[{"GA", "[", "\[Mu]", "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "GA5"}], ")"}], ".", 
+     RowBox[{"neutrinoSpinSum", "[", "p\[Nu]", "]"}], ".", 
+     RowBox[{"DiracSigma", "[", 
+      RowBox[{
+       RowBox[{"GA", "[", "\[Alpha]", "]"}], ",", 
+       RowBox[{"GA", "[", "\[Beta]", "]"}]}], "]"}], ".", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", "GA5"}], ")"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"DiracSimplify", "[", 
+   RowBox[{
+    RowBox[{"hadronLT", ".", 
+     RowBox[{"DiracSimplify", "[", "leptonLT", "]"}]}], " ", "//", " ", 
+    "Contract"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"LT", " ", "=", "  ", 
+  RowBox[{
+   RowBox[{"2", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Epsilon]TC", " ", "%"}], " ", "+", " ", 
+      RowBox[{"\[Epsilon]T", " ", 
+       RowBox[{"ComplexConjugate", "[", "%", "]"}]}]}], ")"}]}], " ", "//", 
+   " ", "Simplify"}]}]}], "Input",
+ CellChangeTimes->{{3.8873912851581087`*^9, 3.887391287274766*^9}, {
+   3.887391373047656*^9, 3.887391400115954*^9}, {3.887391460975239*^9, 
+   3.8873915843742943`*^9}, {3.887391689826261*^9, 3.8873917135556393`*^9}, 
+   3.88739174440726*^9, {3.887391776138921*^9, 3.8873917781461143`*^9}},
+ CellLabel->
+  "In[460]:=",ExpressionUUID->"58d970ee-1f90-4090-9dcc-93952e9b8f45"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", "512"}], " ", "mElectron", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]T", "+", "\[Epsilon]TC"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"3", " ", "mNeutron", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pP",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pN",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pP",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["s",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}]}], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["p\[Nu]",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["s",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FormBox[
+            OverscriptBox[
+             FormBox["pN",
+              TraditionalForm], "_"],
+            TraditionalForm], 
+           FormBox["\<\"\[CenterDot]\"\>",
+            TraditionalForm], 
+           FormBox[
+            OverscriptBox[
+             FormBox["pP",
+              TraditionalForm], "_"],
+            TraditionalForm]}], ")"}]}]}], ")"}]}], "-", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]T", "-", "\[Epsilon]TC"}], ")"}], " ", 
+      SuperscriptBox[
+       OverscriptBox["\[Epsilon]", "_"], 
+       RowBox[{
+        FormBox[
+         OverscriptBox[
+          FormBox["pN",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["pP",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["p\[Nu]",
+           TraditionalForm], "_"],
+         TraditionalForm], 
+        FormBox[
+         OverscriptBox[
+          FormBox["s",
+           TraditionalForm], "_"],
+         TraditionalForm]}]]}]}], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.887391608680991*^9, 3.887391744891939*^9, 
+  3.887391778778776*^9},
+ CellLabel->
+  "Out[463]=",ExpressionUUID->"423f63f4-b73a-4f03-be15-af8e5104fec3"]
+}, Open  ]]
+},
+WindowSize->{1130, 745},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5b962401-6e06-47b1-b817-c84a06021caf"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 218, 3, 30, "Input",ExpressionUUID->"94c556e1-e05b-4d6c-8e1d-c8c5fb6a1423"],
+Cell[CellGroupData[{
+Cell[823, 29, 2371, 66, 30, "Print",ExpressionUUID->"e013cc71-4642-4d47-87eb-97946cb658d1"],
+Cell[3197, 97, 1159, 30, 30, "Print",ExpressionUUID->"47b8e99a-da66-40a8-8849-4daf74792007"],
+Cell[4359, 129, 1159, 32, 30, "Print",ExpressionUUID->"8e95a2f8-b203-459c-8c51-a4982e9a3bad"],
+Cell[5521, 163, 335, 7, 27, "Print",ExpressionUUID->"fd69088b-b6cf-4f82-a6dc-79bf377482be"],
+Cell[5859, 172, 336, 7, 27, "Print",ExpressionUUID->"bb4e7676-51a1-4935-b274-0d296fd961c0"],
+Cell[6198, 181, 323, 7, 27, "Print",ExpressionUUID->"d4c44fb9-ac17-4f75-a236-2464d3c34290"]
+}, Open  ]]
+}, Open  ]],
+Cell[6548, 192, 2187, 56, 178, "Input",ExpressionUUID->"e9f7aa40-acc1-4864-8e21-2f17eee99a3f"],
+Cell[CellGroupData[{
+Cell[8760, 252, 4250, 106, 220, "Input",ExpressionUUID->"187a42ad-b193-48a6-9912-867508c1de64"],
+Cell[13013, 360, 4088, 123, 42, "Output",ExpressionUUID->"190b8814-b8ba-44d0-a3df-f92ca9520958"],
+Cell[17104, 485, 20570, 715, 134, "Output",ExpressionUUID->"2b0e6b77-4c97-4389-af61-2be044c5b57d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37711, 1205, 1527, 41, 94, "Input",ExpressionUUID->"0930f84a-6b88-4089-9920-b3f31798f8cc"],
+Cell[39241, 1248, 3559, 116, 42, "Output",ExpressionUUID->"04b59b81-2871-46c3-a6a9-e58fe21b6893"]
+}, Open  ]],
+Cell[42815, 1367, 154, 3, 30, "Input",ExpressionUUID->"1699a391-52c9-42fa-b339-7e880d4bc748"],
+Cell[CellGroupData[{
+Cell[42994, 1374, 1558, 42, 94, "Input",ExpressionUUID->"588c3583-bf89-4cef-a33f-19dcf8d66fc9"],
+Cell[44555, 1418, 3482, 115, 42, "Output",ExpressionUUID->"8acefe39-024a-492a-8568-6040ceb972f1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48074, 1538, 2036, 52, 94, "Input",ExpressionUUID->"58d970ee-1f90-4090-9dcc-93952e9b8f45"],
+Cell[50113, 1592, 3367, 113, 42, "Output",ExpressionUUID->"423f63f4-b73a-4f03-be15-af8e5104fec3"]
+}, Open  ]]
+}
+]
+*)
+
