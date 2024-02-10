@@ -27,6 +27,8 @@ class Momentum4:
         
     @classmethod
     def from_polar(cls, e, c_theta, phi, m):
-        p = np.array([e, np.sqrt(e**2 - m**2)*np.sqrt(1 - c_theta**2)*np.cos(phi),
-            np.sqrt(e**2 - m**2)*np.sqrt(1 - c_theta**2)*np.sin(phi), np.sqrt(e**2 - m**2)*c_theta])
+        modP = np.sqrt(e**2 - m**2)
+        s_theta = np.sqrt(1 - c_theta**2)
+        p = np.array([e, modP*s_theta*np.cos(phi),
+            modP*s_theta*np.sin(phi), modP*c_theta])
         return cls(p, m)

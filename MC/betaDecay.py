@@ -9,6 +9,7 @@ Created on Tue Mar 21 12:13:00 2023
 #I should make sure that I'm getting the three-momentum of the daughter correctly.
 
 import numpy as np
+import scipy as sp
 from constants import electronMass
 from constants import protonMass
 from utils import direction_from_polar
@@ -40,6 +41,8 @@ class BetaDecay:
         self.cosThetaElectronNucleon()
         self.weight()
         self.error()
+        self.missingMomentum()
+        self.missingEnergy()
     
     def cosThetaElectronNu(self):
         # Return cosine of angle between electron and neutrino
@@ -58,7 +61,7 @@ class BetaDecay:
     
     def neutrinoEnergy(self):
         # Define the neutrino energy given the electron's energy and the Q-value, neglecting the small kinetic energy of child nucleus
-        self.neutrinoEnergy = self.QValue - self.electronEnergy
+        self.neutrinoEnergy = self.QValue - (self.electronEnergy - electronMass)
         return self
     
     def neutrinoFourMomentum(self):
@@ -70,17 +73,29 @@ class BetaDecay:
         electron4Momentum = Momentum4.from_polar(self.electronEnergy, self.electronCosTheta, self.electronPhi, electronMass)
         self.electronMomentum = electron4Momentum.threeMomentum
         self.electronMomentumMagnitude = electron4Momentum.momentumMag
+        if self.electronMomentumMagnitude == 0:
+            raise ValueError("electron has no momentum")
         return self
     
     def childMomentum(self):
         self.childMomentum = -self.electronMomentum - self.neutrinoMomentum 
         self.childMomentumMagnitude = np.linalg.norm(self.childMomentum)
+        if self.childMomentumMagnitude == 0:
+            raise ValueError("child has no momentum")
         return self
 
     def cosThetaElectronNucleon(self):
         self.cosThetaElectronNucleon = np.dot(self.electronMomentum,self.childMomentum)/(self.electronMomentumMagnitude*self.childMomentumMagnitude)
+        if self.cosThetaElectronNucleon > 1:
+            raise ValueError("cosThetaElectronNucleon > 1")
+        if self.cosThetaElectronNucleon < -1:
+            self.cosThetaElectronNucleon = -1
         return self
 
+    def missingEnergy(self):
+        self.missingEnergy = - (self.electronEnergy - self.QValue - electronMass)
+        self.missingMassSquared = self.missingEnergy**2 - self.missingMomentumMagnitude**2
+        return self
 
     def weight(self):
         # Define the weight of the event through the particular probability distribution
@@ -105,12 +120,24 @@ class BetaDecay:
         return self
             
     def FermiFunction(self):
-        return 1
+        alpha = 1/137
+        Z = 10
+        S = np.sqrt(1-alpha**2 * Z**2)
+        rho = 1.2 * Z**(1/3)
+        eta = Z*0.3**2*self.electronEnergy/self.electronMomentumMagnitude
+        fraction = 2*(1+S)/((sp.special.gamma(1+2*S))**2)
+        firstTerm = (2*self.electronMomentumMagnitude*rho)**(2*S-2)
+        secondTerm = np.exp(np.pi*eta)
+        thirdTerm = np.absolute(sp.special.gamma(S+eta*1j))**2
+        return fraction*firstTerm*secondTerm*thirdTerm
     
     def phaseSpaceFactor(self):
-        return self.electronMomentumMagnitude*self.electronEnergy*(self.QValue-self.electronEnergy)**2
+        return self.electronMomentumMagnitude*self.electronEnergy*(electronMass+self.QValue-self.electronEnergy)**2
     
-    
+    def missingMomentum(self):
+        self.missingMomentum = -(self.childMomentum + self.electronMomentum)
+        self.missingMomentumMagnitude = np.linalg.norm(self.missingMomentum)
+        return self
     
     
     

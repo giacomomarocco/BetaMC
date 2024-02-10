@@ -37,3 +37,7 @@ class GammaDecay(BetaDecay):
         self.childMomentumMagnitude = np.linalg.norm(self.childMomentum)
         return self
 
+    def missingEnergy(self):
+        self.missingEnergy = - (self.electronEnergy - self.QValue - self.gammaEnergy- electronMass)
+        self.missingMassSquared = self.missingEnergy**2 - self.missingMomentumMagnitude**2
+        return self
