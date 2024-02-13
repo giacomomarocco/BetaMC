@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Mon Feb 12 17:06:29 2024
+
+@author: giacomomarocco
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Thu Feb  8 12:09:39 2024
 
 @author: giacomomarocco
@@ -19,9 +27,10 @@ from constants import electronMass
 
 
 class test:
-    def __init__(self, QValue, num_samples, decayType, gammaEnergies = 0 ):
+    def __init__(self, QValue, num_samples, decayType, gammaEnergies = 0, photonMass = 0 ):
         start = time.time()
         self.QValue = QValue
+        self.photonMass = photonMass
         self.gammaEnergies = gammaEnergies
         self.num_samples = num_samples
         self.decayType = decayType
@@ -39,7 +48,7 @@ class test:
                 self.missingEnergy[i], self.missingMomentum[i], self.betaEnergy[i], self.weights[i] = [decay.missingEnergy, decay.missingMomentumMagnitude, decay.electronEnergy, decay.weight]
                 self.missingMassSquared[i] = decay.missingMassSquared
             elif self.decayType == 'gamma':
-                decay = GammaDecay(self.gammaEnergies, self.QValue, self.samples[0][i], self.samples[1][i], self.samples[2][i], self.samples[3][i])
+                decay = GammaDecay(self.gammaEnergies, self.QValue, self.samples[0][i], self.samples[1][i], self.samples[2][i], self.samples[3][i], self.photonMass)
                 self.missingEnergy[i], self.missingMomentum[i], self.betaEnergy[i], self.weights[i] = [decay.missingEnergy, decay.missingMomentumMagnitude, decay.electronEnergy, decay.weight]
                 self.missingMassSquared[i] = decay.missingMassSquared
         end = time.time()
@@ -81,15 +90,18 @@ class test:
         
 
 
-b = test(3.648,10000, 'beta')
-g1 = test(3.648,50000, 'gamma', [0.7184])
-g2 = test(3.648,50000, 'gamma', [1.021,0.7184])
-b.hist2d()
-g1.hist2d()
-g2.hist2d()
-# plt.hist2d(g1.missingMassSquared, g1.betaEnergy,bins = 100, weights = g1.weights, range = [[0,3],[0,2]])
+# b = test(3.648,1000, 'beta')
+# g1 = test(1.5,5000, 'gamma', [1.2], photonMass = 0.)
+# g2 = test(1.5,5000, 'gamma', [1.2], photonMass = 1.2)
+# # g1.hist2d()
+# # g2.hist2d()
+# plt.hist2d(g1.betaEnergy, g1.missingMomentum,bins = 100, weights = g1.weights, range = [[0,3],[0,3]])
+# plt.xlabel(r'$E_\beta$', fontsize = 'large')
+# plt.ylabel(r'$|\mathbf{p}_\mathrm{miss} =  - \mathbf{p}_\beta - \mathbf{p}_\mathrm{sp}|$', fontsize = 'large')
 # plt.show()
-# plt.hist2d(g2.missingMassSquared, g2.betaEnergy,bins = 100, weights = g2.weights, range = [[0,3],[0,3]])
+# plt.hist2d(g2.betaEnergy, g2.missingMomentum, bins = 100, weights = g2.weights, range = [[0,3],[0,3]])
+# plt.xlabel(r'$E_\beta$', fontsize = 'large')
+# plt.ylabel(r'$|\mathbf{p}_\mathrm{miss} =  - \mathbf{p}_\beta - \mathbf{p}_\mathrm{sp}|$', fontsize = 'large')
 # plt.show()
 
 # # plt.hist2d(g.missingMassSquared, g.missingMomentum,bins = 100, weights = g.weights, range = [[0,3],[0,2]])
@@ -97,17 +109,17 @@ g2.hist2d()
 # # plt.hist2d(b.missingMassSquared, b.missingMomentum,bins = 100, weights = b.weights, range = [[0,3],[0,2]])
 # # plt.show()
 
-# # plt.hist2d(g.betaEnergy, g.missingMomentum,bins = 100, weights = g.weights, range = [[0,3],[0,2]])
-# # plt.show()
-# # plt.hist2d(b.betaEnergy, b.missingMomentum,bins = 100, weights = b.weights, range = [[0,3],[0,2]])
-# # plt.show()
-
-# # plt.hist(np.abs(b.missingMassSquared)**(1/2), weights = g.weights, bins = 100, range = [0,2])
-# # plt.show()
-# # plt.hist(np.abs(g.missingMassSquared)**(1/2), weights = g.weights, bins = 100, range = [0,2])
-# # plt.show()
-# # b.plotMissingMass()
-# # g.plotMissingMass()
+g1 = test(1.5,5000, 'gamma', [1.2], photonMass = 0.)
+g2 = test(1.5,5000, 'gamma', [1.2], photonMass = 1.2)
+# g1.hist2d()
+# g2.hist2d()
+plt.hist2d(g1.betaEnergy, g1.missingMomentum,bins = 100, weights = g1.weights, range = [[0,3],[0,3]])
+plt.xlabel(r'$E_\beta$', fontsize = 'large')
+plt.ylabel(r'$|\mathbf{p}_\mathrm{miss} =  - \mathbf{p}_\beta - \mathbf{p}_\mathrm{sp}|$', fontsize = 'large')
+plt.show()
+plt.hist2d(g2.betaEnergy, g2.missingMomentum, bins = 100, weights = g2.weights, range = [[0,3],[0,3]])
+plt.xlabel(r'$E_\beta$', fontsize = 'large')
+plt.ylabel(r'$|\mathbf{p}_\mathrm{miss} =  - \mathbf{p}_\beta - \mathbf{p}_\mathrm{sp}|$', fontsize = 'large')
 
 # def cutOnMissingMass(decays, massCut, observable):
 #     return np.transpose([[observable[i], decays.weights[i]] for i, x in enumerate(decays.missingMassSquared) if x < massCut])

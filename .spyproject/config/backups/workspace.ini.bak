@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['../../../.spyder-py3/temp.py', 'MC/momentum4.py', 'MC/script.py', 'MC/gammaDecay.py', 'massivePhoton.py', 'MC/betaDecay.py', 'MC/utils.py', 'MC/test1.py']
+recent_files = ['../../../.spyder-py3/temp.py', 'MC/momentum4.py', 'MC/script.py', 'MC/gammaDecay.py', 'MC/test1.py', 'MC/betaDecay.py']
 
 [main]
 version = 0.2.0
